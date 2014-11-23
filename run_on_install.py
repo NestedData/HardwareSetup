@@ -25,7 +25,7 @@ chromium-browser --kiosk ‘$SCHOOL_STREAMER_URL’" > $STARTUP_SCRIPT_PATH")
 os.system("chmod 755 $STARTUP_SCRIPT_PATH")
 
 # autorun the startup script once the desktop is ready
-os.system("mkdir -p ~/.config/autostart/directory/
-echo "[Desktop Entry]
-Type=Application
-Exec=$STARTUP_SCRIPT_PATH" > ~/.config/autostart/directory/drizzle.desktop")
+# os.system("mkdir -p ~/.config/autostart/directory/
+# echo "[Desktop Entry]
+# Type=Application
+# Exec=$STARTUP_SCRIPT_PATH" > ~/.config/autostart/directory/drizzle.desktop")
