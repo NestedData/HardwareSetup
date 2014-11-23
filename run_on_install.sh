@@ -1,21 +1,29 @@
 #!/bin/sh
-
+GOOGLE_CHROME_PACKAGE_NAME="google-chrome-stable_current_amd64.deb"
+GOOGLE_CHROME_PACKAGE_PATH="~/$GOOGLE_CHROME_PACKAGE_NAME"
+SCHOOL_STREAMER_URL="http://socialdrizzle.com/univeristy-of-alabama-at-birmingham/s/jumbotron"
+STARTUP_SCRIPT_PATH=~/Desktop/Start-Drizzle.sh
 #installs/removes
+# install chromium
 sudo apt-get install chromium-browser
+# Install Chrome dependencies
 sudo apt-get install libxss1 libappindicator1 libindicator7
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome*.deb
+# download chrome's debian package
+wget -O $GOOGLE_CHROME_PACKAGE_PATH "https://dl.google.com/linux/direct/$GOOGLE_CHROME_PACKAGE_NAME"
+# install the chrome package
+sudo dpkg -i $GOOGLE_CHROME_PACKAGE_NAME
+# remove the google deb package that was downloaded and installed already
+sudo rm -rf $GOOGLE_CHROME_PACKAGE_PATH
 
-sudo rm -rf ~/Desktop/google*
-
-# adds Start-Drizzle.sh to Desktop to open on boot
+# writes Start-Drizzle.sh to Desktop to open on boot
 echo "#!/bin/bash \n
-chromium-browser --kiosk ‘http://socialdrizzle.com/univeristy-of-alabama-at-birmingham/s/jumbotron’" > ~/Desktop/Start-Drizzle.sh
+chromium-browser --kiosk ‘$SCHOOL_STREAMER_URL’" > $STARTUP_SCRIPT_PATH
 
-chmod 755 Start-Drizzle.sh
+# change permissions on the startup script
+chmod 755 $STARTUP_SCRIPT_PATH
 
-# set autostart to desktop file
+# autorun the startup script once the desktop is ready
 mkdir -p ~/.config/autostart/directory/
 echo "[Desktop Entry]
 Type=Application
-Exec=/home/{computer_name(ex:drizzle2-desktop)}/Start-Drizzle.sh" > ~/.config/autostart/directory/drizzle.desktop
+Exec=$STARTUP_SCRIPT_PATH" > ~/.config/autostart/directory/drizzle.desktop
