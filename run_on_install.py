@@ -4,7 +4,7 @@ GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
 GOOGLE_CHROME_PACKAGE_PATH = os.path.expanduser("~")+"/"+GOOGLE_CHROME_PACKAGE_NAME
 SCHOOL_STREAMER_URL = "http://socialdrizzle.com/univeristy-of-alabama-at-birmingham/s/jumbotron"
 STARTUP_DESKTOP_SCRIPT_PATH = os.path.expanduser("~")+"/Desktop/Start-Drizzle.sh"
-AUTORUN_SCRIPT_PATH = os.path.expanduser("~")+"/.config/autostart/directory"
+AUTORUN_SCRIPT_PATH = os.path.expanduser("~")+"/.config/autostart"
 AUTORUN_SCRIPT_NAME = AUTORUN_SCRIPT_PATH+"/drizzle.desktop"
 
 # installs/removes
