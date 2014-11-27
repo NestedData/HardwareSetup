@@ -15,7 +15,7 @@ def install_software():
         # Install Chrome dependencies
         os.system("sudo apt-get install libxss1 libappindicator1 libindicator7")
         # download chrome's debian package
-        os.system("wget -O "+GOOGLE_CHROME_PACKAGE_PATH+" https://dl.google.com/linux/direct/"+GOOGLE_CHROME_PACKAGE_NAME)
+        os.system("wget -O "+GOOGLE_CHROME_PACKAGE_PATH+" https://dl.google.com/linux/direct/$GOOGLE_CHROME_PACKAGE_NAME")
         # install the chrome package
         os.system("sudo dpkg -i "+GOOGLE_CHROME_PACKAGE_NAME)
         # remove the google deb package that was downloaded and installed already
