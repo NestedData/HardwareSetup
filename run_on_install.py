@@ -31,30 +31,47 @@ def install_software():
     except OSError as oserr:
         if oserr:
             raise 
+def chromium_startup_script():
+    script_lines = [
+        "#!/bin/bash\n",
+        "chromium-browser --kiosk " + SCHOOL_STREAMER_URL,
+    ]
+    return '\n'.join(script_lines)
+
+def write_chromium_startup_script():
+    # creates Start-Drizzle.sh on Desktop
+    file_handle = open(STARTUP_DESKTOP_SCRIPT_PATH, "w")
+    # writes script to run on startup
+    file_handle.write(chromium_startup_script())
+    # change permissions to execute
+    os.system("chmod 755 "+STARTUP_DESKTOP_SCRIPT_PATH)
+
+
+def autostart_script():
+    script_lines = [
+        "[Desktop Entry]\n",
+        "Type=Application",
+        "Exec="+STARTUP_DESKTOP_SCRIPT_PATH
+    ]
+    return '\n'.join(script_lines)
+def write_autostart_script():
+    # creates ~/.config/autostart/directory 
+    os.makedirs(AUTORUN_SCRIPT_PATH)
+    # creates drizzle.desktop
+    startup_config = open(AUTORUN_SCRIPT_NAME, "w")
+    # writes script for running autostart
+    startup_config.write(autostart_script())
 
 # makes the necessary files for autostart
 def make_startup_files():
     try:
-        # creates Start-Drizzle.sh on Desktop
-        startup_desktop = open(STARTUP_DESKTOP_SCRIPT_PATH, "w")
-        # writes script to run on startup
-        startup_desktop.write("#!/bin/bash\nchromium-browser --kiosk " + SCHOOL_STREAMER_URL)
-        # change permissions to exicute
-        os.system("chmod 755 "+STARTUP_DESKTOP_SCRIPT_PATH)
-
-        # creates ~/.config/autostart/directory 
-        os.makedirs(AUTORUN_SCRIPT_PATH)
-        # creates drizzle.desktop
-        startup_config = open(AUTORUN_SCRIPT_NAME, "w")
-        # writes script for running autostart
-        startup_config.write("[Desktop Entry]\n\nType=Application\n\nExec="+STARTUP_DESKTOP_SCRIPT_PATH)
-        
+        write_chromium_startup_script()
+        write_autostart_script()
     except OSError as oserr:
         if oserr:
             raise 
-
     
 
-# install_software()
+install_software()
 
-# make_startup_files()
+make_startup_files()
