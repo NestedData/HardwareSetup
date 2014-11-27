@@ -7,7 +7,7 @@ STARTUP_DESKTOP_SCRIPT_PATH = os.path.expanduser("~")+"/Desktop/Start-Drizzle.sh
 AUTORUN_SCRIPT_PATH = os.path.expanduser("~")+"/.config/autostart/directory"
 AUTORUN_SCRIPT_NAME = AUTORUN_SCRIPT_PATH+"/drizzle.desktop"
 
-#installs/removes
+# installs/removes
 def install_software():
     try:
         # install chromium
@@ -24,21 +24,21 @@ def install_software():
         if oserr:
             raise 
 
-#makes the necessary files for autostart
+# makes the necessary files for autostart
 def make_startup_files():
     try:
-        #creates Start-Drizzle.sh on Desktop
+        # creates Start-Drizzle.sh on Desktop
         startup_desktop = open(STARTUP_DESKTOP_SCRIPT_PATH, "w")
-        #writes script to run on startup
+        # writes script to run on startup
         startup_desktop.write("#!/bin/bash\nchromium-browser --kiosk " + SCHOOL_STREAMER_URL)
-        #change permissions to exicute
+        # change permissions to exicute
         os.system("chmod 755 "+STARTUP_DESKTOP_SCRIPT_PATH)
 
-        #creates ~/.config/autostart/directory 
+        # creates ~/.config/autostart/directory 
         os.makedirs(AUTORUN_SCRIPT_PATH)
-        #creates drizzle.desktop
+        # creates drizzle.desktop
         startup_config = open(AUTORUN_SCRIPT_NAME, "w")
-        #writes script for running autostart
+        # writes script for running autostart
         startup_config.write("[Desktop Entry]\n\nType=Application\n\nExec="+STARTUP_DESKTOP_SCRIPT_PATH)
         
     except OSError as oserr:
