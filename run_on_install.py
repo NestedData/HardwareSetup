@@ -15,6 +15,12 @@ AUTORUN_SCRIPT_PATH = os.path.join(USER_PATH, ".config/autostart")
 AUTORUN_SCRIPT_NAME = os.path.join(AUTORUN_SCRIPT_PATH, "drizzle.desktop")
 
 print SCHOOL_STREAMER_URL
+def install_debian_package_binary(package_path):
+    
+    os.system("sudo dpkg -i {package_path}".format(**{
+        package_path: package_path
+    }))
+
 # installs/removes
 def install_software():
     try:
@@ -23,15 +29,21 @@ def install_software():
         # Install Chrome dependencies
         os.system("sudo apt-get install libxss1 libappindicator1 libindicator7")
         # download chrome's debian package
-        os.system("wget -O "+GOOGLE_CHROME_PACKAGE_PATH+" https://dl.google.com/linux/direct/"+GOOGLE_CHROME_PACKAGE_NAME)
+        os.system("wget -O {output_path} https://dl.google.com/linux/direct/{package_name}".format(**{
+            'output_path': GOOGLE_CHROME_PACKAGE_PATH,
+            'package_name': GOOGLE_CHROME_PACKAGE_NAME
+        }))
         # install the chrome package
-        os.system("sudo dpkg -i "+GOOGLE_CHROME_PACKAGE_NAME)
+        # NOTE: changed to GOOGLE_CHROME_PACKAGE_PATH so that it works from any directory, not only if this
+        # script is run from the same location as the chrome binary is downloaded
+        install_debian_package_binary(GOOGLE_CHROME_PACKAGE_PATH)
         # remove the google deb package that was downloaded and installed already
+        # TODO: maybe os.remove()? http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
         os.system("sudo rm -rf "+GOOGLE_CHROME_PACKAGE_PATH)
     except OSError as oserr:
         if oserr:
             raise 
-def chromium_startup_script():
+def chromium_startup_script_template():
     script_lines = [
         "#!/bin/bash\n",
         "chromium-browser --kiosk " + SCHOOL_STREAMER_URL,
@@ -42,12 +54,12 @@ def write_chromium_startup_script():
     # creates Start-Drizzle.sh on Desktop
     file_handle = open(STARTUP_DESKTOP_SCRIPT_PATH, "w")
     # writes script to run on startup
-    file_handle.write(chromium_startup_script())
+    file_handle.write(chromium_startup_script_template())
     # change permissions to execute
     os.system("chmod 755 "+STARTUP_DESKTOP_SCRIPT_PATH)
 
 
-def autostart_script():
+def autostart_script_template():
     script_lines = [
         "[Desktop Entry]\n",
         "Type=Application",
@@ -60,7 +72,7 @@ def write_autostart_script():
     # creates drizzle.desktop
     startup_config = open(AUTORUN_SCRIPT_NAME, "w")
     # writes script for running autostart
-    startup_config.write(autostart_script())
+    startup_config.write(autostart_script_template())
 
 # makes the necessary files for autostart
 def make_startup_files():
