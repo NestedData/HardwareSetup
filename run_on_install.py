@@ -4,6 +4,7 @@
 #       that do what the bash tool we're running does. Otherwise, we should just go back to
 #       bash so we have easy access to pipes and redirects.
 import os
+import requests
 from slugify import slugify
 
 
@@ -14,12 +15,13 @@ school_name = slugify(school_name)
 
 GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
 GOOGLE_CHROME_PACKAGE_PATH = os.path.join(USER_PATH, GOOGLE_CHROME_PACKAGE_NAME)
-SCHOOL_STREAMER_URL = "http://socialdrizzle.com/"+school_name+"/s/jumbotron"
+SCHOOL_STREAMER_URL = "http://socialdrizzle.com/{school_name}/s/jumbotron".format(**{
+    school_name: school_name
+})
 STARTUP_DESKTOP_SCRIPT_PATH = os.path.join(USER_PATH, "Desktop/Start-Drizzle.sh")
 AUTORUN_SCRIPT_PATH = os.path.join(USER_PATH, ".config/autostart")
 AUTORUN_SCRIPT_NAME = os.path.join(AUTORUN_SCRIPT_PATH, "drizzle.desktop")
 
-print SCHOOL_STREAMER_URL
 def install_debian_package_binary(package_path):
     os.system("sudo dpkg -i {package_path}".format(**{
         package_path: package_path
@@ -28,14 +30,30 @@ def install_debian_package_binary(package_path):
 def install_chromium():
     os.system("sudo apt-get install chromium-browser")
 
+# download a file available at source_url to target_path on the file system.
+def download_file(target_path, source_url):
+    try:
+        # NOTE the stream=True parameter
+        r = requests.get(source_url, stream=True)
+        with open(target_path, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024): 
+                if chunk: # filter out keep-alive new chunks
+                    f.write(chunk)
+                    f.flush()
+        return true
+    # TODO: better exception handling
+    except:
+        return false
+
 # NOTE: TBH at this point you should probably use urllib or something
 # other than spawning a system call to download this file.
 # http://stackoverflow.com/questions/2467609/using-wget-via-python
-def wget(target_path, source_url):
-    os.system("wget -O {target_path} {source_url}".format(**{
-        'target_path': target_path,
-        'source_url': source_url
-    }))
+# DEPRECATED. use download_file instead
+# def wget(target_path, source_url):
+#     os.system("wget -O {target_path} {source_url}".format(**{
+#         'target_path': target_path,
+#         'source_url': source_url
+#     }))
 
 def install_chrome():
     # Install Chrome dependencies
@@ -44,7 +62,7 @@ def install_chrome():
         'package_name': GOOGLE_CHROME_PACKAGE_NAME
     })
     # download chrome's debian package
-    wget(GOOGLE_CHROME_PACKAGE_PATH, CHROME_URL)
+    download_file(GOOGLE_CHROME_PACKAGE_PATH, CHROME_URL)
     # install the chrome package
     # NOTE: changed to GOOGLE_CHROME_PACKAGE_PATH so that it works from any directory, not only if this
     # script is run from the same location as the chrome binary is downloaded
