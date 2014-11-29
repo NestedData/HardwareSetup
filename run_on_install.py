@@ -16,7 +16,7 @@ school_name = slugify(school_name)
 GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
 GOOGLE_CHROME_PACKAGE_PATH = os.path.join(USER_PATH, GOOGLE_CHROME_PACKAGE_NAME)
 SCHOOL_STREAMER_URL = "http://socialdrizzle.com/{school_name}/s/jumbotron".format(**{
-    school_name: school_name
+    'school_name': school_name
 })
 STARTUP_DESKTOP_SCRIPT_PATH = os.path.join(USER_PATH, "Desktop/Start-Drizzle.sh")
 AUTORUN_SCRIPT_PATH = os.path.join(USER_PATH, ".config/autostart")
@@ -24,7 +24,7 @@ AUTORUN_SCRIPT_NAME = os.path.join(AUTORUN_SCRIPT_PATH, "drizzle.desktop")
 
 def install_debian_package_binary(package_path):
     os.system("sudo dpkg -i {package_path}".format(**{
-        package_path: package_path
+        'package_path': package_path
     }))
 
 def install_chromium():
@@ -48,7 +48,8 @@ def download_file(target_path, source_url):
 # NOTE: TBH at this point you should probably use urllib or something
 # other than spawning a system call to download this file.
 # http://stackoverflow.com/questions/2467609/using-wget-via-python
-# DEPRECATED. use download_file instead
+# DEPRECATED. use download_file instead. Note, delete this once you're satisfied
+#   that the replacement code works, i haven't really tested it :D
 # def wget(target_path, source_url):
 #     os.system("wget -O {target_path} {source_url}".format(**{
 #         'target_path': target_path,
@@ -69,7 +70,9 @@ def install_chrome():
     install_debian_package_binary(GOOGLE_CHROME_PACKAGE_PATH)
     # remove the google deb package that was downloaded and installed already
     # TODO: maybe os.remove()? http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
-    os.system("sudo rm -rf "+GOOGLE_CHROME_PACKAGE_PATH)
+    os.system("sudo rm -rf {path}".format(**{
+        'path': GOOGLE_CHROME_PACKAGE_PATH
+    }))
 
 def chromium_startup_script_template():
     script_lines = [
