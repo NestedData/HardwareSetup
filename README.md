@@ -1,6 +1,6 @@
 # Create `NeD_base`
 
-1. Install lubuntu 14.04
+1. Install lubuntu 12.04
 
 	`Your Name: NeD`
 
@@ -20,11 +20,9 @@
 	
 4. Set all energy settings to never
 
-	Menu -> Preferences -> Light Locker Settings
+	Menu -> Preferences -> Screen Saver
 	
-		both sliders = Never
-		
-		enable LL = OFF
+		lock screen after 9999 mns
 		
 	Menu -> Preferences -> Power Manager
 	
