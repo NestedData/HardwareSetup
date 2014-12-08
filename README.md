@@ -1,4 +1,4 @@
-# Create NeD_Base
+# Create `NeD_Base`
 
 1. Install lubuntu 14.04
 2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
@@ -20,14 +20,12 @@
 	Disable windows on boot 
 6. Reboot into NeD_base
 
-#####################################################
-
-To upgrade from NeD_base to NeD_XXX#
+# Upgrade `NeD_base` to `NeD_XXX#`
 
 1. Open terminal
-2. Execute "bash run.sh"
-Navigate to http://socialdrizzle.com/sign-in
-6. Enter Email and Password
+2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
+3. Execute "bash run.sh"
+4. Navigate to `http://socialdrizzle.com/sign-in` and sign in
 
 # Developers
 
