@@ -1,6 +1,7 @@
 import os
 import Utils
 import shutil
+import socket
 
 def chromium_startup_script_template():
     school_name = raw_input("What is the schools name?") or "Mississippi State University"
@@ -51,7 +52,19 @@ def make_startup_files():
     except OSError as oserr:
         if oserr:
             raise 
-    
+
+def change_hostname():
+    HOSTNAME_PATH = "/etc/hostname"
+    HOSTS_PATH = "/etc/hosts"
+    old_hostname = socket.gethostname()
+    new_hostname = raw_input("What is this NeD's name?") or socket.gethostname()
+    os.chmod(HOSTNAME_PATH, 0666)
+    Utils.write_file(HOSTNAME_PATH, new_hostname, true)
+    #### read every line of HOSTS_PATH until old_hostname is found then
+    #### replace it with new_hostname
+    # change hostname immediatly (uncomment after the rest of the function is done)
+    # os.system("sudo hostname {hostname}".format(hostname=new_hostname))
+    ############################
 
 make_startup_files()
 configure_unclutter()
