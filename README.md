@@ -20,6 +20,10 @@
 	Disable windows on boot 
 6. Reboot into NeD_base
 
+# Clone `NeD_base` to another drive
+
+# Install `NeD_base` image to a NUC
+
 # Upgrade `NeD_base` to `NeD_XXX#`
 
 1. Open terminal
