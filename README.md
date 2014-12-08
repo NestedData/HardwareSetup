@@ -1,4 +1,4 @@
-# Create `NeD_Base`
+# Create `NeD_base`
 
 1. Install lubuntu 14.04
 2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
