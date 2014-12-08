@@ -1,9 +1,10 @@
-# Setup
+# Create NeD_Base
 
 1. Install lubuntu 14.04
-2. Open terminal
+2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
 3. Execute "bash run.sh"
 4. Set all energy settings to never
+	```
 	Menu -> Preferences -> Light Locker Settings
 		both sliders = Never
 		enable LL = OFF
@@ -15,6 +16,7 @@
 			Monitor: both sliders = never
 		Extended
 			uncheck lock screen
+	```
 5. Configure TeamViewer
 	Autostart on boot
 	Disable windows on boot 
