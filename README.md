@@ -1,6 +1,6 @@
 # Create `NeD_base`
 
-1. Install lubuntu 14.04
+1. Install lubuntu 12.04
 
 	`Your Name: NeD`
 
