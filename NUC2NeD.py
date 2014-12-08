@@ -21,80 +21,80 @@ SCREEN_LOCKER = "/etc/xdg/autostart/light-locker.desktop"
 UPDATE_NOTIFIER = "/etc/xdg/autostart/update-notifier.desktop"
 GRUB_PATH = "/etc/default/grub"
 
-def install_chromium():
-    Utils.install_apt_packages("chromium-browser")
+# def install_chromium():
+#     Utils.install_apt_packages("chromium-browser")
 
 
-def install_chrome():
-	# Install Chrome dependencies
-	Utils.install_apt_packages(["libxss1", "libappindicator1", "libindicator7"])
-	CHROME_URL_TEMPLATE = "https://dl.google.com/linux/direct/{package_name}"
-	CHROME_URL = CHROME_URL_TEMPLATE.format(
-	package_name=GOOGLE_CHROME_PACKAGE_NAME
-	)
-	# download chrome's debian package
-	Utils.download_file(GOOGLE_CHROME_PACKAGE_PATH, CHROME_URL)
-	# install the chrome package
-	# NOTE: changed to GOOGLE_CHROME_PACKAGE_PATH so that it works from any directory, not only if this
-	# script is run from the same location as the chrome binary is downloaded
-	Utils.install_debian_package_binary(GOOGLE_CHROME_PACKAGE_PATH)
-	# remove the google deb package that was downloaded and installed already
-	Utils.remove_file(GOOGLE_CHROME_PACKAGE_PATH)
+# def install_chrome():
+# 	# Install Chrome dependencies
+# 	Utils.install_apt_packages(["libxss1", "libappindicator1", "libindicator7"])
+# 	CHROME_URL_TEMPLATE = "https://dl.google.com/linux/direct/{package_name}"
+# 	CHROME_URL = CHROME_URL_TEMPLATE.format(
+# 	package_name=GOOGLE_CHROME_PACKAGE_NAME
+# 	)
+# 	# download chrome's debian package
+# 	Utils.download_file(GOOGLE_CHROME_PACKAGE_PATH, CHROME_URL)
+# 	# install the chrome package
+# 	# NOTE: changed to GOOGLE_CHROME_PACKAGE_PATH so that it works from any directory, not only if this
+# 	# script is run from the same location as the chrome binary is downloaded
+# 	Utils.install_debian_package_binary(GOOGLE_CHROME_PACKAGE_PATH)
+# 	# remove the google deb package that was downloaded and installed already
+# 	Utils.remove_file(GOOGLE_CHROME_PACKAGE_PATH)
 	
 
-# hides mouse cursor if the mouse isn't moving
-def install_unclutter():
-    Utils.install_apt_packages("unclutter")
--
+# # hides mouse cursor if the mouse isn't moving
+# def install_unclutter():
+#     Utils.install_apt_packages("unclutter")
+
 def install_teamviewer():
 	Utils.download_file(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
 	Utils.install_debian_package_binary(TEAMVIEWER_PACKAGE_PATH)
 	
-def install_nodejs():
-	# get node.js rep
-	os.system("curl -sL {NODEJS_REP} | sudo bash -".format({
-		NODEJS_REP: NODEJS_REP
-		}))
-	Utils.install_apt_packages("nodejs")
-	os.system("sudo npm install -g n")
+# def install_nodejs():
+# 	# get node.js rep
+# 	os.system("curl -sL {NODEJS_REP} | sudo bash -".format(
+# 		NODEJS_REP=NODEJS_REP
+# 		))
+# 	Utils.install_apt_packages("nodejs")
+# 	os.system("sudo npm install -g n")
 
-def disable_teamviewer_popup():
-	conf = "[int32] ShowTaskbarInfoOnMinimize = 0"
-	Utils.write_file(TEAMVIEWER_CONF_PATH, conf)
+# def disable_teamviewer_popup():
+# 	conf = "[int32] ShowTaskbarInfoOnMinimize = 0"
+# 	Utils.write_file(TEAMVIEWER_CONF_PATH, conf)
 
-def set_grub_recordFail_timeout():
-	grub_append = "GRUB_RECORDFAIL_TIMEOUT=2"
-	Utils.write_file(GRUB_PATH, grub_append, mode='a')
+# def set_grub_recordFail_timeout():
+# 	grub_append = "GRUB_RECORDFAIL_TIMEOUT=2"
+# 	Utils.write_file(GRUB_PATH, grub_append, mode='a')
 
-def update_grub():
-	os.system("sudo apt-get update-grub")
+# def update_grub():
+# 	os.system("sudo apt-get update-grub")
 
-# installs/removes
-def install_software():
-    try:
-    	install_nodejs()
-        install_chromium()
-        # install_chrome()
-        # hides mouse cursor if the mouse isn't moving
-        install_unclutter()
-        install_teamviewer()
-        # configure teamviewer
-        disable_teamviewer_popup()
-        # configure grub
-        set_grub_recordFail_timeout()
-        update_grub()
-    except OSError as oserr:
-        if oserr:
-            raise
+# # installs/removes
+# def install_software():
+#     try:
+#     	install_nodejs()
+#         install_chromium()
+#         # install_chrome()
+#         # hides mouse cursor if the mouse isn't moving
+#         install_unclutter()
+#         install_teamviewer()
+#         # configure teamviewer
+#         disable_teamviewer_popup()
+#         # configure grub
+#         set_grub_recordFail_timeout()
+#         update_grub()
+#     except OSError as oserr:
+#         if oserr:
+#             raise
 
 
-def cleanup():
-    # disable some startup stuff
-    Utils.remove_file(SCREEN_LOCKER)
-    Utils.remove_file(UPDATE_NOTIFIER)
+# def cleanup():
+#     # disable some startup stuff
+#     Utils.remove_file(SCREEN_LOCKER)
+#     Utils.remove_file(UPDATE_NOTIFIER)
 
-install_software()
-cleanup()
+# install_software()
+# cleanup()
 
 
 
