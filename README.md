@@ -7,8 +7,10 @@
 	`User Name: socialdrizzle `
 	
 	`Password: S9@rx4L`
-2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
-3. Execute "bash run.sh"
+2. Clone & navigate to this repo in terminal 
+	
+	`git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
+3. Execute `bash run.sh`
 4. Set all energy settings to never
 
 	Menu -> Preferences -> Light Locker Settings
