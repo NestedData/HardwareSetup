@@ -23,7 +23,9 @@
 #####################################################
 
 To upgrade from NeD_base to NeD_XXX#
-### TODO.........
+
+1. Open terminal
+2. Execute "bash run.sh"
 Navigate to http://socialdrizzle.com/sign-in
 6. Enter Email and Password
 
