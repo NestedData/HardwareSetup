@@ -7,10 +7,14 @@
 	`User Name: socialdrizzle `
 	
 	`Password: S9@rx4L`
-2. Clone & navigate to this repo in terminal 
+2. Go to and download
+
+	`https://github.com/NestedData/HardwareSetup`
 	
-	`git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
-3. Execute `bash run.sh`
+3. Open terminal execute 
+
+	`cd ~/Downloads/HardwareSetup && bash run.sh`
+	
 4. Set all energy settings to never
 
 	Menu -> Preferences -> Light Locker Settings
@@ -36,8 +40,11 @@
 			uncheck lock screen
 			
 5. Configure TeamViewer
+
 	Autostart on boot
+	
 	Disable windows on boot 
+	
 6. Reboot into NeD_base
 
 # Clone `NeD_base` to another drive
