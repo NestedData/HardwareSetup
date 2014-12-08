@@ -19,7 +19,7 @@ AUTORUN_SCRIPT_PATH = os.path.join(USER_PATH, ".config/autostart")
 AUTORUN_SCRIPT_NAME = os.path.join(AUTORUN_SCRIPT_PATH, "drizzle.desktop")
 SCREEN_LOCKER = "/etc/xdg/autostart/light-locker.desktop"
 UPDATE_NOTIFIER = "/etc/xdg/autostart/update-notifier.desktop"
-GRUB_PATH = "/etc/default/grub"
+
 
 def install_chromium():
     Utils.install_apt_packages("chromium-browser")
@@ -62,27 +62,17 @@ def disable_teamviewer_popup():
 	conf = "[int32] ShowTaskbarInfoOnMinimize = 0"
 	Utils.write_file(TEAMVIEWER_CONF_PATH, conf)
 
-def set_grub_recordFail_timeout():
-	grub_append = "GRUB_RECORDFAIL_TIMEOUT=2"
-	Utils.write_file(GRUB_PATH, grub_append, mode='a')
-
-def update_grub():
-	os.system("sudo apt-get update-grub")
-
 # installs/removes
 def install_software():
     try:
     	install_nodejs()
-        install_chromium()
+        #install_chromium()
         # install_chrome()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
         install_teamviewer()
         # configure teamviewer
-        disable_teamviewer_popup()
-        # configure grub
-        set_grub_recordFail_timeout()
-        update_grub()
+        #disable_teamviewer_popup()
     except OSError as oserr:
         if oserr:
             raise
@@ -93,9 +83,9 @@ def cleanup():
     Utils.remove_file(SCREEN_LOCKER)
     Utils.remove_file(UPDATE_NOTIFIER)
 
-install_software()
-cleanup()
-
+#install_software()
+#cleanup()
+os.system("sudo python grub_setup.py")
 
 
 
