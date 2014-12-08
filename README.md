@@ -2,11 +2,14 @@
 
 1. Install lubuntu 14.04
 
+	`Your Name: NeD`
+
 	`Computer Name: NeD `
 	
 	`User Name: socialdrizzle `
 	
 	`Password: S9@rx4L`
+	
 2. Go to and download
 
 	`https://github.com/NestedData/HardwareSetup`
