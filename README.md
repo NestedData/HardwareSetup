@@ -1,10 +1,10 @@
-# Create `NeD_base`
+# Create `NeD_XXX###`
 
 1. Install lubuntu 12.04
 
 	`Your Name: Social Drizzle`
 
-	`Computer Name: NeD `
+	`Computer Name: NeD_XXX###`
 	
 	`User Name: socialdrizzle `
 	
@@ -16,7 +16,7 @@
 	
 3. Open terminal execute 
 
-	`cd ~/Downloads/HardwareSetup && bash run.sh`
+	`cd ~/Downloads/HardwareSetup && sudo bash run.sh`
 	
 4. Set all energy settings to never
 
@@ -47,18 +47,14 @@
 		check `Start teamviewer with system`
 	
 	
-6. Reboot into NeD_base
+6.Navigate to http://socialdrizzle.com/sign-in
 
-# Clone `NeD_base` to another drive
+	sign in as NeD's user
+	
 
-# Install `NeD_base` image to a NUC
+Reboot into NeD_base
 
-# Upgrade `NeD_base` to `NeD_XXX#`
 
-1. Open terminal
-2. Clone & navigate to this repo in terminal `git clone https://github.com/NestedData/HardwareSetup && cd HardwareSetup`
-3. Execute "bash run.sh"
-4. Navigate to `http://socialdrizzle.com/sign-in` and sign in
 
 # Developers
 
