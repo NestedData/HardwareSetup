@@ -59,7 +59,7 @@
 	
 # When Finished
 
-Reboot into NeD
+Close web browser and reboot into NeD
 
 
 
