@@ -51,7 +51,8 @@
 
 	sign in as NeD's user
 	
-7. Reboot into NeD_base
+
+Reboot into NeD_base
 
 
 
