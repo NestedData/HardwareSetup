@@ -50,6 +50,7 @@
 6.Navigate to http://socialdrizzle.com/sign-in
 
 	sign in as NeD's user
+	
 7. Reboot into NeD_base
 
 
