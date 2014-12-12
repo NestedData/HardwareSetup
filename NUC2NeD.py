@@ -126,9 +126,10 @@ def write_autostart_script():
     Utils.write_file(AUTORUN_SCRIPT_NAME, autostart_script_template())
 
 
-def configure_unclutter():    
+def configure_unclutter():
+	print hello    
     os.system("unclutter -idle 0.01 -root")
-
+    print hello
 
 # makes the necessary files for autostart
 def make_startup_files():
