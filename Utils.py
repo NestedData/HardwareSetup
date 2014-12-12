@@ -33,17 +33,19 @@ def download_file(target_path, source_url):
 
 def write_file(path, data, mode='w'):
     if os.path.exists(path) and mode is not 'a':
-        pathBAK = os.join(path, ".bak")
+        pathBAK = path + ".bak"
         os.rename(path, pathBAK)
     with open(path, mode) as handle:
         handle.write(data)
 
 def remove_file(path, replace_with_backup=False):
-    # replace w/ a backup if it exists
-    backup_path = os.join(path, ".bak")
+    # make a backup
+    backup_path = path + ".bak"
+    shutil.copy(path, backup_path)
     # remove the file
     if os.path.exists(path):
         os.remove(path)
+    # replace existing with backup
     if replace_with_backup and os.path.exists(backup_path):
         os.rename(path, backup_path)
 
