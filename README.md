@@ -16,7 +16,7 @@
 	
 	`Password: S9@rx4L`
 	
-2. Go to [Hardware Settup](https://github.com/NestedData/HardwareSetup), download, and extract to `~`
+2. Go to [Hardware Setup](https://github.com/NestedData/HardwareSetup), download, and extract to `~`
 
 	
 3. Open terminal execute 
