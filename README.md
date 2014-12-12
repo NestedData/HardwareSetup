@@ -18,41 +18,45 @@
 
 	`cd ~/Downloads/HardwareSetup && sudo bash run.sh`
 	
-4. Set all energy settings to never
+	* Set all energy settings to never
+	
+		Menu -> Preferences -> Screen Saver
+		
+			Mode -> Disable Screen Saver
+			
+		Menu -> Preferences -> Power Manager
+		
+			General
+			
+				when pwr btn pressed = shutdown
+				
+				uncheck boxes
+				
+			On AC
+			
+				Actions: slider = never
+				
+				Monitor: both sliders = never
+				
+			Extended
+			
+				uncheck lock screen
 
-	Menu -> Preferences -> Screen Saver
-	
-		Mode -> Disable Screen Saver
-		
-	Menu -> Preferences -> Power Manager
-	
-		General
-		
-			when pwr btn pressed = shutdown
-			
-			uncheck boxes
-			
-		On AC
-		
-			Actions: slider = never
-			
-			Monitor: both sliders = never
-			
-		Extended
-		
-			uncheck lock screen
-			
-5. Configure TeamViewer
+# While that is running
 
-	Extras -> options
-	
-		check `Start teamviewer with system`
-	
-	
-6.Navigate to http://socialdrizzle.com/sign-in
+	* Navigate to http://socialdrizzle.com/sign-in
 
-	sign in as NeD's user
+		sign in as NeD's user
 	
+				
+	* Configure TeamViewer
+
+		Extras -> options
+		
+			check `Start teamviewer with system`
+		
+	
+# When Finished
 
 Reboot into NeD_base
 
