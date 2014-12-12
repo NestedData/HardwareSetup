@@ -22,7 +22,7 @@
 
 	Menu -> Preferences -> Screen Saver
 	
-		lock screen after 9999 mns
+		Mode -> Disable Screen Saver
 		
 	Menu -> Preferences -> Power Manager
 	
