@@ -20,41 +20,41 @@
 	
 # While that is running
 	
-	* Set all energy settings to never
+Set all energy settings to never
 	
-		Menu -> Preferences -> Screen Saver
+	Menu -> Preferences -> Screen Saver
+	
+		Mode -> Disable Screen Saver
 		
-			Mode -> Disable Screen Saver
-			
-		Menu -> Preferences -> Power Manager
+	Menu -> Preferences -> Power Manager
+	
+		General
 		
-			General
+			when pwr btn pressed = shutdown
 			
-				when pwr btn pressed = shutdown
-				
-				uncheck boxes
-				
-			On AC
+			uncheck boxes
 			
-				Actions: slider = never
-				
-				Monitor: both sliders = never
-				
-			Extended
+		On AC
+		
+			Actions: slider = never
 			
-				uncheck lock screen
+			Monitor: both sliders = never
+			
+		Extended
+		
+			uncheck lock screen
 
-	* Navigate to [socialdrizzle](http://socialdrizzle.com/sign-in)
+Navigate to [http://socialdrizzle.com/sign-in]
 
-		sign in as NeD's user
+	sign in as NeD's user
 	
 				
-	* Configure TeamViewer
+Configure TeamViewer
 
-		Extras -> options
-		
-			check `Start teamviewer with system`
-		
+	Extras -> options
+	
+		check `Start teamviewer with system`
+	
 	
 # When Finished
 
