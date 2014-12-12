@@ -42,9 +42,10 @@
 			
 5. Configure TeamViewer
 
-	Autostart on boot
+	Extras -> options
 	
-	Disable windows on boot 
+		check `Start teamviewer with system`
+	
 	
 6. Reboot into NeD_base
 
