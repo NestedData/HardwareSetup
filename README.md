@@ -16,7 +16,7 @@
 	
 3. Open terminal execute 
 
-	`cd ~/Downloads/HardwareSetup && bash run.sh`
+	`cd ~/Downloads/HardwareSetup && sudo bash run.sh`
 	
 4. Set all energy settings to never
 
@@ -50,7 +50,6 @@
 6.Navigate to http://socialdrizzle.com/sign-in
 
 	sign in as NeD's user
-
 7. Reboot into NeD_base
 
 
