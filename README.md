@@ -30,6 +30,8 @@
 		
 			when pwr btn pressed = shutdown
 			
+			uncheck boxes
+			
 		On AC
 		
 			Actions: slider = never
