@@ -49,7 +49,7 @@
 * Configure TeamViewer:	
 	Extras -> options
 	
-	check `Start teamviewer with system`
+		check "Start teamviewer with system"
 	
 	
 # When Finished
