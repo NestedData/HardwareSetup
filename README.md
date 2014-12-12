@@ -10,13 +10,13 @@
 	
 	`Password: S9@rx4L`
 	
-2. Go to and download
+2. Go to, download, and extract to `~`
 
 	`https://github.com/NestedData/HardwareSetup`
 	
 3. Open terminal execute 
 
-	`cd ~/Downloads/HardwareSetup && sudo bash run.sh`
+	`cd HardwareSetup && sudo bash run.sh`
 	
 # While that is running
 	
