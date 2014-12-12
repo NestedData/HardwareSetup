@@ -39,11 +39,11 @@ def write_file(path, data, mode='w'):
         handle.write(data)
 
 def remove_file(path, replace_with_backup=False):
+    # replace w/ a backup if it exists
+    backup_path = os.join(path, ".bak")
     # remove the file
     if os.path.exists(path):
         os.remove(path)
-    # replace w/ a backup if it exists
-    backup_path = os.join(path, ".bak")
     if replace_with_backup and os.path.exists(backup_path):
         os.rename(path, backup_path)
 
