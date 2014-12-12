@@ -47,7 +47,7 @@
 		check `Start teamviewer with system`
 	
 	
-6.Navigate to `http://socialdrizzle.com/sign-in` 
+6.Navigate to http://socialdrizzle.com/sign-in
 
 	sign in as NeD's user
 
