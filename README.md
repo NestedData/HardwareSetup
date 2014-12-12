@@ -2,7 +2,7 @@
 
 1. Install lubuntu 12.04
 
-	`Your Name: Social Drizzle`
+	`Your Name: SocialDrizzle`
 
 	`Computer Name: NeD_XXX###`
 	
