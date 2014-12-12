@@ -17,9 +17,9 @@ GOOGLE_CHROME_PACKAGE_PATH = os.path.join(USER_PATH, GOOGLE_CHROME_PACKAGE_NAME)
 STARTUP_DESKTOP_SCRIPT_PATH = os.path.join(USER_PATH, "Desktop/Start-Drizzle.sh")
 AUTORUN_SCRIPT_PATH = os.path.join(USER_PATH, ".config/autostart")
 AUTORUN_SCRIPT_NAME = os.path.join(AUTORUN_SCRIPT_PATH, "drizzle.desktop")
-SCREEN_LOCKER = "/etc/xdg/autostart/light-locker.desktop"
+POWER_MANAGER = "/etc/xdg/autostart/xfce4-power-manager.desktop"
 UPDATE_NOTIFIER = "/etc/xdg/autostart/update-notifier.desktop"
-
+HW_UPDATOR = "/etc/xdg/autostart/jockey-gtk.desktop"
 
 def install_chromium():
     Utils.install_apt_packages("chromium-browser")
@@ -72,7 +72,7 @@ def install_software():
         install_unclutter()
         install_teamviewer()
         # configure teamviewer
-        #disable_teamviewer_popup()
+        # disable_teamviewer_popup()
     except OSError as oserr:
         if oserr:
             raise
@@ -80,12 +80,14 @@ def install_software():
 
 def cleanup():
     # disable some startup stuff
-    Utils.remove_file(SCREEN_LOCKER)
+    Utils.remove_file(POWER_MANAGER)
     Utils.remove_file(UPDATE_NOTIFIER)
+    Utils.remove_file(HW_UPDATOR)
 
-#install_software()
-#cleanup()
+install_software()
+cleanup()
 os.system("sudo python grub_setup.py")
+
 
 
 
