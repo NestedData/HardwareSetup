@@ -81,14 +81,6 @@ def install_software():
         if oserr:
             raise
 
-
-def cleanup():
-    # disable some startup stuff
-    Utils.remove_file(POWER_MANAGER)
-    Utils.remove_file(UPDATE_NOTIFIER)
-    Utils.remove_file(HW_UPDATOR)
-
-
 def chromium_startup_script_template():
     school_name = raw_input("What is the schools name?") or "Mississippi State University"
     school_name = Utils.slugify(school_name)
@@ -138,8 +130,12 @@ def make_startup_files():
         if oserr:
             raise 
 
-
-
+def cleanup():
+    # disable some startup stuff
+    Utils.remove_file(POWER_MANAGER)
+    Utils.remove_file(UPDATE_NOTIFIER)
+    Utils.remove_file(HW_UPDATOR)
+    
 
 install_software()
 cleanup()
