@@ -46,7 +46,7 @@ Set all energy settings to never
 
 [Click this link to sign in as NeD's user at SD](http://socialdrizzle.com/sign-in) or go to  http://socialdrizzle.com/sign-in
 
-Configure TeamViewer
+Configure TeamViewer:	
 	Extras -> options
 	
 	check `Start teamviewer with system`
