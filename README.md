@@ -4,7 +4,13 @@
 
 	`Your Name: SocialDrizzle`
 
-	`Computer Name: NeD_XXX###`
+	`Computer Name: NeD-XXX-###`
+		
+		- XXX = School Initials
+	
+		- ### = NeD serial number
+		
+			- ex. ned-MSU-100
 	
 	`User Name: socialdrizzle `
 	
