@@ -21,7 +21,7 @@
 # While that is running
 	
 Set all energy settings to never
-	
+
 	Menu -> Preferences -> Screen Saver
 	
 		Mode -> Disable Screen Saver
@@ -47,10 +47,9 @@ Set all energy settings to never
 [Click this link to sign in as NeD's user at SD](http://socialdrizzle.com/sign-in) or go to  http://socialdrizzle.com/sign-in
 
 Configure TeamViewer
-
 	Extras -> options
 	
-		check `Start teamviewer with system`
+	check `Start teamviewer with system`
 	
 	
 # When Finished
