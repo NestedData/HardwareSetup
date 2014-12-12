@@ -59,7 +59,7 @@
 	
 # When Finished
 
-Reboot into NeD_base
+Reboot into NeD
 
 
 
