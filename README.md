@@ -44,7 +44,7 @@
 			
 				uncheck lock screen
 
-	* Navigate to http://socialdrizzle.com/sign-in
+	* Navigate to [socialdrizzle](http://socialdrizzle.com/sign-in)
 
 		sign in as NeD's user
 	
