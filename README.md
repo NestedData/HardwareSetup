@@ -18,6 +18,8 @@
 
 	`cd ~/Downloads/HardwareSetup && sudo bash run.sh`
 	
+# While that is running
+	
 	* Set all energy settings to never
 	
 		Menu -> Preferences -> Screen Saver
@@ -41,8 +43,6 @@
 			Extended
 			
 				uncheck lock screen
-
-# While that is running
 
 	* Navigate to http://socialdrizzle.com/sign-in
 
