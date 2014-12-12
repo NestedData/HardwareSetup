@@ -44,11 +44,8 @@ Set all energy settings to never
 		
 			uncheck lock screen
 
-Navigate to [http://socialdrizzle.com/sign-in]
+[Sign in](http://socialdrizzle.com/sign-in) as NeD's user at SD
 
-	sign in as NeD's user
-	
-				
 Configure TeamViewer
 
 	Extras -> options
