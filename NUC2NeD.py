@@ -10,7 +10,6 @@ TEAMVIEWER_PACKAGE_PATH = os.path.join(USER_PATH, TEAMVIEWER_PACKAGE_NAME)
 TEAMVIEWER_URL = "http://download.teamviewer.com/download/{package_name}".format(
     package_name=TEAMVIEWER_PACKAGE_NAME
 )
-TEAMVIEWER_CONF_PATH = "~/.config/teamviewer9/config/client.conf"
 NODEJS_REP="https://deb.nodesource.com/setup"
 GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
 GOOGLE_CHROME_PACKAGE_PATH = os.path.join(USER_PATH, GOOGLE_CHROME_PACKAGE_NAME)
@@ -59,7 +58,12 @@ def install_nodejs():
 	os.system("sudo npm install -g n")
 
 def disable_teamviewer_popup():
+	TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer9/config"
 	conf = "[int32] ShowTaskbarInfoOnMinimize = 0"
+	if not os.path.exists(TEAMVIEWER_CONF_PATH):
+		print TEAMVIEWER_CONF_PATH
+		os.makedirs(TEAMVIEWER_CONF_PATH)
+	TEAMVIEWER_CONF_PATH = TEAMVIEWER_CONF_PATH + "/client.conf"	
 	Utils.write_file(TEAMVIEWER_CONF_PATH, conf)
 
 # installs/removes
@@ -72,7 +76,7 @@ def install_software():
         install_unclutter()
         install_teamviewer()
         # configure teamviewer
-        # disable_teamviewer_popup()
+        disable_teamviewer_popup()
     except OSError as oserr:
         if oserr:
             raise
