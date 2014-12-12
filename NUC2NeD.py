@@ -135,7 +135,7 @@ def cleanup():
     Utils.remove_file(POWER_MANAGER)
     Utils.remove_file(UPDATE_NOTIFIER)
     Utils.remove_file(HW_UPDATOR)
-    
+
 
 install_software()
 cleanup()
@@ -143,6 +143,7 @@ os.system("sudo python grub_setup.py")
 os.system("sudo python killDPMS.py")
 make_startup_files()
 configure_unclutter()
+
 
 
 
