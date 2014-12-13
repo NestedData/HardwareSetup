@@ -10,7 +10,7 @@ TEAMVIEWER_PACKAGE_PATH = os.path.join(USER_PATH, TEAMVIEWER_PACKAGE_NAME)
 TEAMVIEWER_URL = "http://download.teamviewer.com/download/{package_name}".format(
     package_name=TEAMVIEWER_PACKAGE_NAME
 )
-TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer10/config"
+TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer10/client.conf"
 TEAMVIEWER_CONF = "\n[int32] ShowTaskbarInfoOnMinimize = 0"
 NODEJS_REP="https://deb.nodesource.com/setup"
 GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
