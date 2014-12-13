@@ -20,14 +20,19 @@ sudo pip install -r requirements.txt
 # Make it a a NeD
 sudo python NUC2NeD.py
 
-echo "Start Teamviewer using the binary teamviewer. Press enter when you're ready to continue."
-read
+echo "Downloading and installing teamviewer."
+wget http://download.teamviewer.com/download/teamviewer_amd64.deb
+sudo dpkg -i teamviewer_amd64.deb
+sudo apt-get install -fy
+sudo dpkg -i teamviewer_amd64.deb
+echo "Launching teamviewer. Please accept the license, configure it, and exit the application to continue."
+teamviewer
 echo "Configure power." 
 xfce4-power-manager-settings
 echo "Disable screensaver."
 xscreensaver-demo
 
 # configure teamviewer to not popup on startup
-echo "\n[int32] ShowTaskbarInfoOnMinimize = 0" >> ~/.config/teamviewer10/client.conf
+echo "[int32] ShowTaskbarInfoOnMinimize = 0" >> ~/.config/teamviewer10/client.conf
 
 # TODO: disable teamviewer popup on remote login

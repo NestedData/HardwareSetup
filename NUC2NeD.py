@@ -111,7 +111,7 @@ def remove_startup_services():
 # installs/removes
 def install_software():
     try:
-        install_teamviewer()
+        # install_teamviewer()
         install_nodejs()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
