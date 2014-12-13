@@ -1,0 +1,18 @@
+TeamViewer:        10.0.35002 - DEB
+Profile:           /home/steven (steven)
+Desktop:           DS: 'default' 	XDG: 'X-Cinnamon'
+XServer TTY:       8
+
+DistArch:          x86_64	( Loader:	[X] ld32	[X] ld64 )
+Distribution:
+      Distributor ID:	LinuxMint
+      Description:	Linux Mint 17.1 Rebecca
+      Release:	17.1
+      Codename:	rebecca
+ok (info)
+
+err:ole:CoGetClassObject class {4315d437-5b8c-11d0-bd3b-00a0c911ce86} not registered
+err:ole:CoGetClassObject class {4315d437-5b8c-11d0-bd3b-00a0c911ce86} not registered
+err:ole:CoGetClassObject no class object {4315d437-5b8c-11d0-bd3b-00a0c911ce86} could be created for context 0x3
+wine: configuration in '/home/steven/.config/teamviewer10' has been updated.
+ok (profile)
