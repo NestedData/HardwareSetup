@@ -11,9 +11,9 @@ sudo python killDPMS.py
 # AKA:
 # sudo mkdir -p /etc/X11
 # sudo cp copyFiles/xorg.conf.g /etc/X11/
-
+sudo apt-get update
 # Install pip
-sudo apt-get install -y python-pip
+sudo apt-get install -y python-pip wmctrl
 # Install our python requirements
 sudo pip install -r requirements.txt
 
