@@ -10,6 +10,11 @@ def install_debian_package_binary(package_path):
     ))
     os.system("sudo apt-get install -f")
 
+def download_install_deb(package_path, package_url):
+    download_file(package_path, package_url)
+    install_debian_package_binary(package_path)
+    remove_file(package_path)
+
 def install_apt_packages(packages):
     if not isinstance(packages, basestring):
         packages = " ".join(packages)

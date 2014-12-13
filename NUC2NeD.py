@@ -35,15 +35,8 @@ def install_chrome():
     CHROME_URL = CHROME_URL_TEMPLATE.format(
     package_name=GOOGLE_CHROME_PACKAGE_NAME
     )
-    # download chrome's debian package
-    Utils.download_file(GOOGLE_CHROME_PACKAGE_PATH, CHROME_URL)
-    # install the chrome package
-    # NOTE: changed to GOOGLE_CHROME_PACKAGE_PATH so that it works from any directory, not only if this
-    # script is run from the same location as the chrome binary is downloaded
-    Utils.install_debian_package_binary(GOOGLE_CHROME_PACKAGE_PATH)
-    # remove the google deb package that was downloaded and installed already
-    Utils.remove_file(GOOGLE_CHROME_PACKAGE_PATH)
-    
+    # download chrome's debian package and install it
+    Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)    
 
 # hides mouse cursor if the mouse isn't moving
 def install_unclutter():
@@ -53,16 +46,11 @@ def configure_unclutter():
     os.system("unclutter -idle 0.01 -root&")
 
 def install_teamviewer():
-    Utils.download_file(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
-    Utils.install_debian_package_binary(TEAMVIEWER_PACKAGE_PATH)
-    # open tv
+    Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
+    # open tv to create initial files
     os.system("teamviewer&")
-    
+
 def disable_teamviewer_popup():
-    print TEAMVIEWER_CONF
-    print TEAMVIEWER_CONF_PATH
-    print "Press any key to continue"
-    a=raw_input()
     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
 
 def install_nodejs():
