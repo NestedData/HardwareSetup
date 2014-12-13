@@ -19,13 +19,10 @@ sudo pip install -r requirements.txt
 
 # Make it a a NeD
 python NUC2NeD.py
-teamviewer
-xfce4-power-manager
-xscreensaver-demo
+su socialdrizzle -c "teamviewer"
+su socialdrizzle -c "xfce4-power-manager"
+su socialdrizzle -c "xscreensaver-demo"
 
-
-echo "Sleeping for 30 seconds. Deal with teamviewer."
-sleep 30
 # configure teamviewer to not popup on startup
 su socialdrizzle -c "echo '\n[int32] ShowTaskbarInfoOnMinimize = 0' >> ~/.config/teamviewer10/client.conf"
 
