@@ -48,7 +48,12 @@ def configure_unclutter():
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
     # open tv to create initial files
-    os.system("teamviewer&")
+    print "#########################################"
+    print "#########################################"
+    print "#########################################"
+    print "#########################################"
+    print "\n\n\nConfigure Teamviewer then ctrl-c to continue the program"
+    os.system("teamviewer")
 
 def disable_teamviewer_popup():
     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
