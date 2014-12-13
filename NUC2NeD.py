@@ -27,6 +27,7 @@ HW_UPDATOR = "/etc/xdg/autostart/jockey-gtk.desktop"
 
 def install_chromium():
     Utils.install_apt_packages("chromium-browser")
+    print "Successfully installed Chromium."
 
 
 def install_chrome():
@@ -37,23 +38,28 @@ def install_chrome():
         package_name=GOOGLE_CHROME_PACKAGE_NAME
     )
     # download chrome's debian package and install it
-    Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)    
+    Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)
+    print "Successfully installed Chrome."    
 
 # hides mouse cursor if the mouse isn't moving
 def install_unclutter():
     Utils.install_apt_packages("unclutter")
+    print "Successfully installed unclutter."
 
 def run_unclutter():
     os.system("unclutter -idle 0.01 -root &")
+    print "Running unclutter in the background."
 
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
     Utils.copy_and_backup_original("copyFiles/teamviewer10", TEAMVIEWER_PATH)
     # Create initial files
     os.system("cp -rp copyFiles/teamviewer10 {path}".format(path=TEAMVIEWER_PATH))
+    print "Successfully installed Teamviewer."
     
 def disable_teamviewer_popup():
     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
+    print "Disabled teamview popup."
 
 def install_nodejs():
     # get node.js rep
@@ -62,6 +68,7 @@ def install_nodejs():
     ))
     Utils.install_apt_packages("nodejs")
     os.system("sudo npm install -g n")
+    print "Successfully installed NodeJS."
 
 ######### Startup Scripts
 # make desktop script to open chromium
@@ -109,6 +116,7 @@ def remove_startup_services():
     Utils.remove_file(POWER_MANAGER)
     Utils.remove_file(UPDATE_NOTIFIER)
     Utils.remove_file(HW_UPDATOR)
+    print "Removed unnecessary startup services."
 
 # installs/removes
 def install_software():
@@ -119,7 +127,7 @@ def install_software():
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
         install_teamviewer()
-        print "done"
+        print "Finished installing software."
         # configure teamviewer
         # disable_teamviewer_popup()
     except OSError as oserr:
@@ -131,6 +139,7 @@ def make_startup_files():
     try:
         write_chromium_startup_script()
         write_autostart_script()
+        print "Finished writing startup files."
     except OSError as oserr:
         if oserr:
             raise 
