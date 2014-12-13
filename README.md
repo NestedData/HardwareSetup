@@ -1,4 +1,4 @@
-# Create `NeD_XXX###`
+# Create `NeD-XXX-###`
 
 1. Install lubuntu 12.04
 
