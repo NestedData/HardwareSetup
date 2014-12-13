@@ -58,13 +58,13 @@ def install_nodejs():
 	os.system("sudo npm install -g n")
 
 def disable_teamviewer_popup():
-	TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer9/config"
+	TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer10/config"
 	conf = "[int32] ShowTaskbarInfoOnMinimize = 0"
 	if not os.path.exists(TEAMVIEWER_CONF_PATH):
 		print TEAMVIEWER_CONF_PATH
 		os.makedirs(TEAMVIEWER_CONF_PATH)
 	TEAMVIEWER_CONF_PATH = TEAMVIEWER_CONF_PATH + "/client.conf"	
-	Utils.write_file(TEAMVIEWER_CONF_PATH, conf)
+	Utils.write_file(TEAMVIEWER_CONF_PATH, conf, 'a')
 
 # installs/removes
 def install_software():
