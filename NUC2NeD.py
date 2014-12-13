@@ -111,10 +111,10 @@ def remove_startup_services():
 # installs/removes
 def install_software():
     try:
-    	install_nodejs()
+        install_teamviewer()
+        install_nodejs()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
-        install_teamviewer()
         print "Finished installing software."
     except OSError as oserr:
         if oserr:
