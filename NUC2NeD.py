@@ -55,6 +55,8 @@ def configure_unclutter():
 def install_teamviewer():
     Utils.download_file(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
     Utils.install_debian_package_binary(TEAMVIEWER_PACKAGE_PATH)
+    # open tv
+    os.system("teamviewer&")
     
 def disable_teamviewer_popup():
     print TEAMVIEWER_CONF
