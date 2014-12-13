@@ -46,20 +46,9 @@ def install_unclutter():
     Utils.install_apt_packages("unclutter")
     print "Successfully installed unclutter."
 
-# def run_unclutter():
-#     os.system("unclutter -idle 0.01 -root &")
-#     print "Running unclutter in the background."
-
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
-    Utils.copy_and_backup_original("copyFiles/teamviewer10", TEAMVIEWER_PATH)
-    # Create initial files
-    os.system("cp -rp copyFiles/teamviewer10 {path}".format(path=TEAMVIEWER_PATH))
     print "Successfully installed Teamviewer."
-    
-# def disable_teamviewer_popup():
-#     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
-#     print "Disabled teamview popup."
 
 def install_nodejs():
     # get node.js rep
@@ -111,6 +100,7 @@ def autostart_script_template():
 
 ######### Finishing up
 
+# require sudo
 def remove_startup_services():
     # disable some default startup stuff
     Utils.remove_file(POWER_MANAGER)
@@ -122,14 +112,10 @@ def remove_startup_services():
 def install_software():
     try:
     	install_nodejs()
-        # install_chromium()
-        # install_chrome()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
-        # install_teamviewer()
+        install_teamviewer()
         print "Finished installing software."
-        # configure teamviewer
-        # disable_teamviewer_popup()
     except OSError as oserr:
         if oserr:
             raise
@@ -148,9 +134,3 @@ def make_startup_files():
 install_software()
 remove_startup_services()
 make_startup_files()
-# NOTE: this has been added into the autostart script
-#       used to run chromium.
-# run_unclutter()
-
-
-
