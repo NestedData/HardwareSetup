@@ -18,4 +18,4 @@ sudo apt-get install -y python-pip
 sudo pip install -r requirements.txt
 
 # Make it a a NeD
-su socialdrizzle -c "python NUC2NeD.py"
+python NUC2NeD.py
