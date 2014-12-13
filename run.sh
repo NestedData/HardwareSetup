@@ -32,7 +32,7 @@ xfce4-power-manager-settings
 echo "Disable screensaver."
 xscreensaver-demo
 
-# configure teamviewer to not popup on startup
-echo "[int32] ShowTaskbarInfoOnMinimize = 0" >> ~/.config/teamviewer10/client.conf
 
-# TODO: disable teamviewer popup on remote login
+# disable teamviewer popup on remote login
+# TODO: not working correctly... overwriting a file it should append to
+# echo "[int32] ShowTaskbarInfoOnMinimize = 0" >> ~/.config/teamviewer10/client.conf
