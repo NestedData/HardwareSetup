@@ -10,7 +10,8 @@ TEAMVIEWER_PACKAGE_PATH = os.path.join(USER_PATH, TEAMVIEWER_PACKAGE_NAME)
 TEAMVIEWER_URL = "http://download.teamviewer.com/download/{package_name}".format(
     package_name=TEAMVIEWER_PACKAGE_NAME
 )
-TEAMVIEWER_CONF_PATH = USER_PATH + "/.config/teamviewer10/client.conf"
+TEAMVIEWER_PATH = USER_PATH + "/.config/teamviewer10"
+TEAMVIEWER_CONF_PATH = TEAMVIEWER_PATH + "/client.conf"
 TEAMVIEWER_CONF = "\n[int32] ShowTaskbarInfoOnMinimize = 0"
 NODEJS_REP="https://deb.nodesource.com/setup"
 GOOGLE_CHROME_PACKAGE_NAME = "google-chrome-stable_current_amd64.deb"
@@ -47,14 +48,10 @@ def configure_unclutter():
 
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
-    # open tv to create initial files
-    print "#########################################"
-    print "#########################################"
-    print "#########################################"
-    print "#########################################"
-    print "\n\n\nConfigure Teamviewer then ctrl-c to continue the program"
-    os.system("teamviewer")
-
+    Utils.copy_and_backup_original("copyFiles/teamviewer10", TEAMVIEWER_PATH)
+    # Create initial files
+    os.system("cp -rp copyFiles/teamviewer10 {path}".format(path=TEAMVIEWER_PATH))
+    
 def disable_teamviewer_popup():
     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
 
@@ -125,8 +122,9 @@ def install_software():
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
         install_teamviewer()
+        print "done"
         # configure teamviewer
-        disable_teamviewer_popup()
+        # disable_teamviewer_popup()
     except OSError as oserr:
         if oserr:
             raise
@@ -146,9 +144,6 @@ cleanup()
 make_startup_files()
 run_linux_adjustments()
 configure_unclutter()
-
-
-
 
 
 
