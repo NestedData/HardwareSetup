@@ -120,12 +120,12 @@ def run_linux_adjustments():
 # installs/removes
 def install_software():
     try:
-    	# install_nodejs()
-     #    #install_chromium()
-     #    # install_chrome()
-     #    # hides mouse cursor if the mouse isn't moving
-     #    install_unclutter()
-     #    install_teamviewer()
+    	install_nodejs()
+        #install_chromium()
+        # install_chrome()
+        # hides mouse cursor if the mouse isn't moving
+        install_unclutter()
+        install_teamviewer()
         # configure teamviewer
         disable_teamviewer_popup()
     except OSError as oserr:
