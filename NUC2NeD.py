@@ -70,8 +70,8 @@ def chromium_startup_script_template():
     script_lines = [
         "#!/bin/bash\n",
         "unclutter -idle 0.01 -root &",
-        "sleep 10",
-        "wmctrl -r "" -b toggle,shaded",
+        "sleep 6",
+        'wmctrl -r "Computers & Contacts" -b toggle,shaded',
         "chromium-browser --kiosk {url}".format(url=SCHOOL_STREAMER_URL),
     ]
     return '\n'.join(script_lines)
