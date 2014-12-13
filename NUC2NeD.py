@@ -57,6 +57,10 @@ def install_teamviewer():
     Utils.install_debian_package_binary(TEAMVIEWER_PACKAGE_PATH)
     
 def disable_teamviewer_popup():
+    print TEAMVIEWER_CONF
+    print TEAMVIEWER_CONF_PATH
+    print "Press any key to continue"
+    a=raw_input()
     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
 
 def install_nodejs():
