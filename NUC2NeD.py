@@ -23,20 +23,6 @@ UPDATE_NOTIFIER = "/etc/xdg/autostart/update-notifier.desktop"
 HW_UPDATOR = "/etc/xdg/autostart/jockey-gtk.desktop"
 
 ######### Installs
-# installs/removes
-def install_software():
-    try:
-    	# install_nodejs()
-     #    #install_chromium()
-     #    # install_chrome()
-     #    # hides mouse cursor if the mouse isn't moving
-     #    install_unclutter()
-     #    install_teamviewer()
-        # configure teamviewer
-        disable_teamviewer_popup()
-    except OSError as oserr:
-        if oserr:
-            raise
 
 def install_chromium():
     Utils.install_apt_packages("chromium-browser")
@@ -71,7 +57,7 @@ def install_teamviewer():
     Utils.install_debian_package_binary(TEAMVIEWER_PACKAGE_PATH)
     
 def disable_teamviewer_popup():
-    Utils.write_file(TEAMVIEWER_CONF_PATH, conf, 'a')
+    Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
 
 def install_nodejs():
     # get node.js rep
@@ -82,24 +68,6 @@ def install_nodejs():
     os.system("sudo npm install -g n")
 
 ######### Startup Scripts
-
-# makes the necessary files for autostart
-def make_startup_files():
-    try:
-        write_chromium_startup_script()
-        write_autostart_script()
-    except OSError as oserr:
-        if oserr:
-            raise 
-
-# write the file that will cause start-drizzle.sh to be run on startup
-def write_autostart_script():
-    # creates ~/.config/autostart/directory 
-    if not os.path.exists(AUTORUN_SCRIPT_PATH):   
-        os.makedirs(AUTORUN_SCRIPT_PATH)
-    # creates drizzle.desktop
-    Utils.write_file(AUTORUN_SCRIPT_NAME, autostart_script_template())
-
 # make desktop script to open chromium
 def chromium_startup_script_template():
     school_name = raw_input("What is the schools name?") or "Mississippi State University"
@@ -112,6 +80,14 @@ def chromium_startup_script_template():
         "chromium-browser --kiosk {url}".format(url=SCHOOL_STREAMER_URL),
     ]
     return '\n'.join(script_lines)
+
+# write the file that will cause start-drizzle.sh to be run on startup
+def write_autostart_script():
+    # creates ~/.config/autostart/directory 
+    if not os.path.exists(AUTORUN_SCRIPT_PATH):   
+        os.makedirs(AUTORUN_SCRIPT_PATH)
+    # creates drizzle.desktop
+    Utils.write_file(AUTORUN_SCRIPT_NAME, autostart_script_template())
 
 # write the file that will be run at startup
 def write_chromium_startup_script():
@@ -140,6 +116,31 @@ def cleanup():
 def run_linux_adjustments():
     os.system("sudo python grub_setup.py")
     os.system("sudo python killDPMS.py")
+
+# installs/removes
+def install_software():
+    try:
+    	# install_nodejs()
+     #    #install_chromium()
+     #    # install_chrome()
+     #    # hides mouse cursor if the mouse isn't moving
+     #    install_unclutter()
+     #    install_teamviewer()
+        # configure teamviewer
+        disable_teamviewer_popup()
+    except OSError as oserr:
+        if oserr:
+            raise
+
+# makes the necessary files for autostart
+def make_startup_files():
+    try:
+        write_chromium_startup_script()
+        write_autostart_script()
+    except OSError as oserr:
+        if oserr:
+            raise 
+
 
 install_software()
 cleanup()
