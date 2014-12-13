@@ -11,7 +11,16 @@ sudo python killDPMS.py
 # AKA:
 # sudo mkdir -p /etc/X11
 # sudo cp copyFiles/xorg.conf.g /etc/X11/
+
+
 sudo apt-get update
+
+echo "Downloading and installing teamviewer."
+wget http://download.teamviewer.com/download/teamviewer_amd64.deb
+sudo dpkg -i teamviewer_amd64.deb
+sudo apt-get install -fy
+sudo dpkg -i teamviewer_amd64.deb
+
 # Install pip
 sudo apt-get install -y python-pip wmctrl
 # Install our python requirements
@@ -20,11 +29,6 @@ sudo pip install -r requirements.txt
 # Make it a a NeD
 sudo python NUC2NeD.py
 
-echo "Downloading and installing teamviewer."
-wget http://download.teamviewer.com/download/teamviewer_amd64.deb
-sudo dpkg -i teamviewer_amd64.deb
-sudo apt-get install -fy
-sudo dpkg -i teamviewer_amd64.deb
 echo "Launching teamviewer. Please accept the license, configure it, and exit the application to continue."
 teamviewer
 echo "Configure power." 
