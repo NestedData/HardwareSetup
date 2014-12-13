@@ -25,30 +25,30 @@ HW_UPDATOR = "/etc/xdg/autostart/jockey-gtk.desktop"
 
 ######### Installs
 
-def install_chromium():
-    Utils.install_apt_packages("chromium-browser")
-    print "Successfully installed Chromium."
+# def install_chromium():
+#     Utils.install_apt_packages("chromium-browser")
+#     print "Successfully installed Chromium."
 
 
-def install_chrome():
-    # Install Chrome dependencies
-    Utils.install_apt_packages(["libxss1", "libappindicator1", "libindicator7"])
-    CHROME_URL_TEMPLATE = "https://dl.google.com/linux/direct/{package_name}"
-    CHROME_URL = CHROME_URL_TEMPLATE.format(
-        package_name=GOOGLE_CHROME_PACKAGE_NAME
-    )
-    # download chrome's debian package and install it
-    Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)
-    print "Successfully installed Chrome."    
+# def install_chrome():
+#     # Install Chrome dependencies
+#     Utils.install_apt_packages(["libxss1", "libappindicator1", "libindicator7"])
+#     CHROME_URL_TEMPLATE = "https://dl.google.com/linux/direct/{package_name}"
+#     CHROME_URL = CHROME_URL_TEMPLATE.format(
+#         package_name=GOOGLE_CHROME_PACKAGE_NAME
+#     )
+#     # download chrome's debian package and install it
+#     Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)
+#     print "Successfully installed Chrome."    
 
 # hides mouse cursor if the mouse isn't moving
 def install_unclutter():
     Utils.install_apt_packages("unclutter")
     print "Successfully installed unclutter."
 
-def run_unclutter():
-    os.system("unclutter -idle 0.01 -root &")
-    print "Running unclutter in the background."
+# def run_unclutter():
+#     os.system("unclutter -idle 0.01 -root &")
+#     print "Running unclutter in the background."
 
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
@@ -57,9 +57,9 @@ def install_teamviewer():
     os.system("cp -rp copyFiles/teamviewer10 {path}".format(path=TEAMVIEWER_PATH))
     print "Successfully installed Teamviewer."
     
-def disable_teamviewer_popup():
-    Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
-    print "Disabled teamview popup."
+# def disable_teamviewer_popup():
+#     Utils.write_file(TEAMVIEWER_CONF_PATH, TEAMVIEWER_CONF, 'a')
+#     print "Disabled teamview popup."
 
 def install_nodejs():
     # get node.js rep
@@ -126,7 +126,7 @@ def install_software():
         # install_chrome()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
-        install_teamviewer()
+        # install_teamviewer()
         print "Finished installing software."
         # configure teamviewer
         # disable_teamviewer_popup()
