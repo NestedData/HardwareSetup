@@ -34,7 +34,7 @@ def install_chrome():
     Utils.install_apt_packages(["libxss1", "libappindicator1", "libindicator7"])
     CHROME_URL_TEMPLATE = "https://dl.google.com/linux/direct/{package_name}"
     CHROME_URL = CHROME_URL_TEMPLATE.format(
-    package_name=GOOGLE_CHROME_PACKAGE_NAME
+        package_name=GOOGLE_CHROME_PACKAGE_NAME
     )
     # download chrome's debian package and install it
     Utils.download_install_deb(CHROME_URL, GOOGLE_CHROME_PACKAGE_PATH)    
@@ -43,8 +43,8 @@ def install_chrome():
 def install_unclutter():
     Utils.install_apt_packages("unclutter")
 
-def configure_unclutter():
-    os.system("unclutter -idle 0.01 -root&")
+def run_unclutter():
+    os.system("unclutter -idle 0.01 -root &")
 
 def install_teamviewer():
     Utils.download_install_deb(TEAMVIEWER_PACKAGE_PATH, TEAMVIEWER_URL)
@@ -59,7 +59,7 @@ def install_nodejs():
     # get node.js rep
     os.system("curl -sL {NODEJS_REP} | sudo bash -".format(
         NODEJS_REP=NODEJS_REP
-        ))
+    ))
     Utils.install_apt_packages("nodejs")
     os.system("sudo npm install -g n")
 
@@ -73,6 +73,7 @@ def chromium_startup_script_template():
     )
     script_lines = [
         "#!/bin/bash\n",
+        "unclutter -idle 0.01 -root &",
         "chromium-browser --kiosk {url}".format(url=SCHOOL_STREAMER_URL),
     ]
     return '\n'.join(script_lines)
@@ -103,21 +104,17 @@ def autostart_script_template():
 
 ######### Finishing up
 
-def cleanup():
-    # disable some startup stuff
+def remove_startup_services():
+    # disable some default startup stuff
     Utils.remove_file(POWER_MANAGER)
     Utils.remove_file(UPDATE_NOTIFIER)
     Utils.remove_file(HW_UPDATOR)
-
-def run_linux_adjustments():
-    os.system("sudo python grub_setup.py")
-    os.system("sudo python killDPMS.py")
 
 # installs/removes
 def install_software():
     try:
     	install_nodejs()
-        #install_chromium()
+        # install_chromium()
         # install_chrome()
         # hides mouse cursor if the mouse isn't moving
         install_unclutter()
@@ -140,10 +137,11 @@ def make_startup_files():
 
 
 install_software()
-cleanup()
+remove_startup_services()
 make_startup_files()
-run_linux_adjustments()
-configure_unclutter()
+# NOTE: this has been added into the autostart script
+#       used to run chromium.
+# run_unclutter()
 
 
 
