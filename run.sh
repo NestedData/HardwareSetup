@@ -20,11 +20,14 @@ sudo pip install -r requirements.txt
 # Make it a a NeD
 sudo python NUC2NeD.py
 
-teamviewer
-xfce4-power-manager
+echo "Start Teamviewer using the binary teamviewer. Press enter when you're ready to continue."
+read
+echo "Configure power." 
+xfce4-power-manager-settings
+echo "Disable screensaver."
 xscreensaver-demo
 
 # configure teamviewer to not popup on startup
-echo '\n[int32] ShowTaskbarInfoOnMinimize = 0' >> ~/.config/teamviewer10/client.conf
+echo "\n[int32] ShowTaskbarInfoOnMinimize = 0" >> ~/.config/teamviewer10/client.conf
 
 # TODO: disable teamviewer popup on remote login

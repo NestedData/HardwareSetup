@@ -15,6 +15,8 @@
 	`User Name: socialdrizzle `
 	
 	`Password: S9@rx4L`
+
+	Enable auto login
 	
 2. Go to [Hardware Setup](https://github.com/NestedData/HardwareSetup), download, and extract to `~`
 
@@ -23,7 +25,7 @@
 
 	`cd HardwareSetup-master && sudo bash run.sh`
 	
-# While that is running
+# The installer will prompt you to configure this
 	
 * Set all energy settings to never
 
