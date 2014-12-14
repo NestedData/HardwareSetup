@@ -23,7 +23,7 @@
 	
 3. Open terminal execute 
 
-	`cd HardwareSetup-master && sudo bash NeD_Startup.sh`
+	`cd HardwareSetup-master && bash NeD_Startup.sh`
 	
 # The installer will prompt you to configure this
 	
