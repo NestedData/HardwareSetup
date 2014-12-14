@@ -1,9 +1,9 @@
 #! /bin/sh
 
 NODEJS_REP="https://deb.nodesource.com/setup"
-GRUB_PATH = "/etc/default/grub"
-GRUB_APPEND = "GRUB_RECORDFAIL_TIMEOUT=2"
-DPMS_PATH = "/etc/X11/"
+GRUB_PATH="/etc/default/grub"
+GRUB_APPEND="GRUB_RECORDFAIL_TIMEOUT=2"
+DPMS_PATH="/etc/X11/"
 INSTALL_CONF_PATH="copyFiles/xorg.conf.d"
 
 ######### Install software

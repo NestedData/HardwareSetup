@@ -1,7 +1,7 @@
 import requests
 import os
 from slugify import slugify as PipSlugify
-
+import shutil
 
 # will install any valid .deb package
 def install_debian_package_binary(package_path):
