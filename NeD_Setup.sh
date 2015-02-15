@@ -9,12 +9,12 @@ INSTALL_CONF_PATH="copyFiles/xorg.conf.d"
 ######### Install software
 sudo apt-get update
 
-echo "Downloading and installing teamviewer."
-wget http://download.teamviewer.com/download/teamviewer_amd64.deb
-sudo dpkg -i teamviewer_amd64.deb
-sudo apt-get install -fy
-sudo dpkg -i teamviewer_amd64.deb
-echo "Successfully installed Teamviewer."
+# echo "Downloading and installing teamviewer."
+# wget http://download.teamviewer.com/download/teamviewer_amd64.deb
+# sudo dpkg -i teamviewer_amd64.deb
+# sudo apt-get install -fy
+# sudo dpkg -i teamviewer_amd64.deb
+# echo "Successfully installed Teamviewer."
 
 # Get node.js repository
 curl -sL $NODEJS_REP | sudo bash -
@@ -49,8 +49,8 @@ sudo cp -p INSTALL_CONF_PATH DPMS_PATH
 
 ########## Launch apps that need to be modified manually
 
-echo "Launching teamviewer. Please accept the license, configure it, and exit the application to continue."
-teamviewer
+# echo "Launching teamviewer. Please accept the license, configure it, and exit the application to continue."
+# teamviewer
 echo "Configure power." 
 xfce4-power-manager-settings
 echo "Disable screensaver."
