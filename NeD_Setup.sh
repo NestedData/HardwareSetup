@@ -60,4 +60,5 @@ xscreensaver-demo
 # Make it a NeD
 sudo python configure_NeD_Startup.py
 
-
+# modify the boot/shutdown screen
+bash NeD_boot_screen_mod/NeD_boot_screen_mod.sh
