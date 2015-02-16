@@ -75,9 +75,14 @@ To freeze pip requirements
 # boot screen changes
 to reverse changes 
 
-1. replace backup of logo
+replace backup of logo
+
 `sudo cp backup_logo/lubuntu_logo.png /lib/plymouth/themes/lubuntu-logo/lubuntu_logo.png `
-2. replace backup of on dot
+
+replace backup of on dot
+
 `sudo cp backup_logo/progress_dot_on.png /lib/plymouth/themes/lubuntu-logo/progress_dot_on.png `
-3. replace backup of off dot
+
+replace backup of off dot
+
 `sudo cp backup_logo/progress_dot_off.png /lib/plymouth/themes/lubuntu-logo/progress_dot_off.png `
