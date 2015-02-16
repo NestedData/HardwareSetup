@@ -18,6 +18,8 @@
 
 	Enable auto login
 	
+2. Run Update Manager
+
 2. Go to [Hardware Setup](https://github.com/NestedData/HardwareSetup), download, and extract to `~`
 
 	
